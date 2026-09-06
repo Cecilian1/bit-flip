@@ -1,0 +1,52 @@
+{
+  "offline_only": true,
+  "author_artifacts_read": [
+    "saved_model\\resnet_CIFAR10\\clean_model_1.pth"
+  ],
+  "author_artifacts_not_read": [
+    "*_potential_weights.npy",
+    "*_neuron_trigger_pair.pkl",
+    "backdoored_models/**/*.pth"
+  ],
+  "arguments": {
+    "clean_checkpoint": "saved_model\\resnet_CIFAR10\\clean_model_1.pth",
+    "data_root": "..\\dataset\\CIFAR10",
+    "output_dir": "runs\\fresh-cifar10-class6",
+    "device": "cuda:0",
+    "target_class": 6,
+    "calibration_size": 1024,
+    "max_bad": 0.001,
+    "trigger_epochs": 500,
+    "optimization_batch_size": 128,
+    "mask_weight": 0.001,
+    "attack_threshold": 1.0,
+    "test_batch_size": 512,
+    "workers": 2,
+    "seed": 20260904
+  },
+  "torch_version": "2.5.1+cu124",
+  "cuda_version": "12.4",
+  "device": "cuda:0",
+  "calibration_clean_accuracy": 0.86328125,
+  "clean_model_accuracy": 0.8642,
+  "candidate_count": 59,
+  "trigger_count": 59,
+  "qualified_model_count": 2,
+  "best_model": {
+    "feature": 58,
+    "target_class": 6,
+    "original_weight": 0.10671299695968628,
+    "flipped_weight": 1.7074079513549805,
+    "original_bits": "00111101110110101000110001011000",
+    "flipped_bits": "00111111110110101000110001011000",
+    "calibration_clean_accuracy": 0.8623046875,
+    "calibration_bad": 0.0009765625,
+    "bit_hamming_distance": 1,
+    "clean_model_accuracy": 0.8642,
+    "trigger_only_target_rate": 0.9993,
+    "backdoor_clean_accuracy": 0.864,
+    "bad": 0.00019999999999997797,
+    "attack_success_rate": 1.0,
+    "mask_l1": 517.7625732421875
+  }
+}

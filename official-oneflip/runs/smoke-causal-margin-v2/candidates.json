@@ -1,0 +1,12 @@
+{
+  "6": [
+    {
+      "feature": 120,
+      "target_class": 6,
+      "original_weight": 0.12271922081708908,
+      "flipped_weight": 1.9635075330734253,
+      "calibration_accuracy": 1.0,
+      "calibration_bad": 0.0
+    }
+  ]
+}

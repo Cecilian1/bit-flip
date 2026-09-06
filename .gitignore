@@ -1,0 +1,32 @@
+# Local environments and package caches
+.venv/
+.venv-*/
+**/.venv/
+**/.venv-*/
+.uv-cache/
+**/.uv-cache*/
+
+# Editor, agent and Python runtime state
+.idea/
+**/.idea/
+.vscode/
+.codex-finalizer/
+**/__pycache__/
+*.py[cod]
+
+# Local data, checkpoints and generated artifacts
+dataset/
+output/
+tmp/
+**/saved_model/**/*.pth
+**/saved_model/**/*.pkl
+**/saved_model/**/*.npy
+official-oneflip/runs/**/trial_triggers/
+official-oneflip/runs/**/progress.json
+official-oneflip/runs/**/*.pth
+official-oneflip/runs/**/*.pt
+official-oneflip/runs/**/*.png
+
+# OS files
+.DS_Store
+Thumbs.db

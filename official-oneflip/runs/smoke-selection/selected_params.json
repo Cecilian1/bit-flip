@@ -1,0 +1,38 @@
+{
+  "source_results": [
+    "official-oneflip\\runs\\smoke-causal-margin-v2\\results.csv"
+  ],
+  "selection_rule": "held-out qualification rate, combined ASR, counterfactual gain, lower trigger-only ASR, lower mask L1",
+  "best": {
+    "beta": 2.0,
+    "mask_weight": 0.001,
+    "clean_margin": 0.5,
+    "attack_margin": 0.5,
+    "trials": 1,
+    "qualified_trials": 0,
+    "qualification_rate": 0.0,
+    "trigger_only_asr_mean": 0.0,
+    "bit_only_asr_mean": 1.0,
+    "combined_asr_mean": 0.0,
+    "bit_marginal_gain_mean": -0.6003098487854004,
+    "mask_l1_mean": 492.69964599609375
+  },
+  "shortlist": [
+    {
+      "beta": 2.0,
+      "mask_weight": 0.001,
+      "clean_margin": 0.5,
+      "attack_margin": 0.5,
+      "trials": 1,
+      "qualified_trials": 0,
+      "qualification_rate": 0.0,
+      "trigger_only_asr_mean": 0.0,
+      "bit_only_asr_mean": 1.0,
+      "combined_asr_mean": 0.0,
+      "bit_marginal_gain_mean": -0.6003098487854004,
+      "mask_l1_mean": 492.69964599609375
+    }
+  ],
+  "has_qualifying_setting": false,
+  "note": "No setting produced a qualifying causal pair; do not continue to the CIFAR-100 extension."
+}

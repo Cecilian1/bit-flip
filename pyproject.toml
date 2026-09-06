@@ -1,0 +1,22 @@
+[project]
+name = "bit-flip"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.9,<3.12"
+dependencies = [
+    "numpy==1.24.4",
+    "pandas==2.2.3",
+    "pillow==11.2.1",
+    "pyyaml==6.0.2",
+    "torch==2.5.1+cu124",
+    "torchvision==0.20.1+cu124",
+    "tqdm==4.67.0",
+]
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
