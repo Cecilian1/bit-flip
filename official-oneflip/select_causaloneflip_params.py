@@ -76,15 +76,17 @@ def main() -> None:
         writer.writerows(ranking)
 
     best = ranking[0]
+    has_qualifying_setting = int(best["qualified_trials"]) > 0
     selected = {
         "source_results": [str(path) for path in args.results],
         "selection_rule": "held-out qualification rate, combined ASR, counterfactual gain, lower trigger-only ASR, lower mask L1",
-        "best": best,
+        "best": best if has_qualifying_setting else None,
+        "closest_setting": best,
         "shortlist": ranking[:3],
-        "has_qualifying_setting": int(best["qualified_trials"]) > 0,
+        "has_qualifying_setting": has_qualifying_setting,
         "note": (
             "Use the selected beta and mask_weight for the fixed main experiment."
-            if int(best["qualified_trials"]) > 0
+            if has_qualifying_setting
             else "No setting produced a qualifying causal pair; do not continue to the CIFAR-100 extension."
         ),
     }

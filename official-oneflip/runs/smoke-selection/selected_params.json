@@ -3,7 +3,8 @@
     "official-oneflip\\runs\\smoke-causal-margin-v2\\results.csv"
   ],
   "selection_rule": "held-out qualification rate, combined ASR, counterfactual gain, lower trigger-only ASR, lower mask L1",
-  "best": {
+  "best": null,
+  "closest_setting": {
     "beta": 2.0,
     "mask_weight": 0.001,
     "clean_margin": 0.5,
