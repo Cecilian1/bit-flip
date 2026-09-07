@@ -1,0 +1,100 @@
+{
+  "6": [
+    {
+      "feature": 120,
+      "target_class": 6,
+      "original_weight": 0.12271922081708908,
+      "flipped_weight": 1.9635075330734253,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 33,
+      "target_class": 6,
+      "original_weight": 0.12096419185400009,
+      "flipped_weight": 1.9354270696640015,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 40,
+      "target_class": 6,
+      "original_weight": 0.00754559226334095,
+      "flipped_weight": 1.9316716194152832,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 482,
+      "target_class": 6,
+      "original_weight": 0.11922784149646759,
+      "flipped_weight": 1.9076454639434814,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 28,
+      "target_class": 6,
+      "original_weight": 0.007444762624800205,
+      "flipped_weight": 1.9058592319488525,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 381,
+      "target_class": 6,
+      "original_weight": 2.8909371394547634e-05,
+      "flipped_weight": 1.8946045637130737,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 496,
+      "target_class": 6,
+      "original_weight": 0.11466922610998154,
+      "flipped_weight": 1.8347076177597046,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 93,
+      "target_class": 6,
+      "original_weight": 0.11067208647727966,
+      "flipped_weight": 1.7707533836364746,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 342,
+      "target_class": 6,
+      "original_weight": 0.006813381798565388,
+      "flipped_weight": 1.7442257404327393,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 508,
+      "target_class": 6,
+      "original_weight": 0.10690490156412125,
+      "flipped_weight": 1.71047842502594,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 58,
+      "target_class": 6,
+      "original_weight": 0.10671299695968628,
+      "flipped_weight": 1.7074079513549805,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    },
+    {
+      "feature": 99,
+      "target_class": 6,
+      "original_weight": 0.1031259074807167,
+      "flipped_weight": 1.6500145196914673,
+      "calibration_accuracy": 0.8463541865348816,
+      "calibration_bad": 0.0
+    }
+  ]
+}

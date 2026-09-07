@@ -1,4 +1,4 @@
-# CausalONEFLIP experiment protocol
+ # CausalONEFLIP experiment protocol
 
 ## Current cross-platform workflow
 
@@ -7,7 +7,20 @@ in raw pixel space, then normalized for the model. Its loss requires the clean
 model to reject the target class and the one-bit-flipped model to accept it,
 while enforcing a counterfactual logit gain through the changed weight.
 
-On Ubuntu, run from this directory with a CUDA 12.4-compatible `uv` setup:
+On Ubuntu 22.04 with an RTX 5090, use Python 3.12 and the PyTorch 2.8 CUDA
+12.8 wheel specified by the repository lock file. CUDA 12.8 is the first
+toolkit release that can emit native Blackwell code; do not reuse the older
+CUDA 12.4 environment from the Windows coarse screen. The NVIDIA driver must
+be new enough for CUDA 12.8.
+
+```bash
+git clone git@github.com:Cecilian1/bit-flip.git
+cd bit-flip
+uv sync --frozen --python 3.12
+uv run --frozen python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name(0), torch.cuda.get_device_capability(0))"
+```
+
+Then run from this directory:
 
 ```bash
 chmod +x run_causaloneflip.sh run_fresh_oneflip.sh

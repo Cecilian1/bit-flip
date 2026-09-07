@@ -1,0 +1,54 @@
+{
+  "offline_only": true,
+  "author_artifacts_read": [
+    "saved_model\\resnet_CIFAR10\\clean_model_1.pth"
+  ],
+  "author_artifacts_not_read": [
+    "*_potential_weights.npy",
+    "*_neuron_trigger_pair.pkl",
+    "backdoored_models/**/*.pth"
+  ],
+  "arguments": {
+    "method": "causal",
+    "dataset": "CIFAR10",
+    "clean_checkpoint": "saved_model\\resnet_CIFAR10\\clean_model_1.pth",
+    "data_root": "..\\dataset\\CIFAR10",
+    "output_dir": "runs\\causaloneflip-tune-class6-coarse-2",
+    "device": "cuda:0",
+    "target_classes": "6",
+    "betas": "2,4,8,16",
+    "mask_weights": "0.001,0.002,0.005",
+    "seeds": "20260904",
+    "calibration_size": 1024,
+    "optimization_size": 768,
+    "max_calibration_bad": 0.001,
+    "trigger_epochs": 150,
+    "optimization_batch_size": 128,
+    "clean_margin": 2.0,
+    "attack_margin": 0.5,
+    "validation_interval": 25,
+    "loss_version": "causal-margin-v2",
+    "test_batch_size": 512,
+    "workers": 2,
+    "max_trigger_only_asr": 0.15,
+    "max_bit_only_asr": 0.15,
+    "min_combined_asr": 0.9,
+    "max_bad": 0.001,
+    "limit_candidates": 12,
+    "resume": false
+  },
+  "torch_version": "2.5.1+cu124",
+  "cuda_version": "12.4",
+  "device": "cuda:0",
+  "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "calibration_clean_accuracy": 0.8463541865348816,
+  "candidate_count_by_target": {
+    "6": 12
+  },
+  "trial_count": 144,
+  "qualified_count": 0,
+  "method": "causal",
+  "dataset": "CIFAR10",
+  "best_model": null,
+  "note": "No causal trial met all acceptance thresholds."
+}

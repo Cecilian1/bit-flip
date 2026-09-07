@@ -15,12 +15,24 @@
 *.py[cod]
 
 # Local data, checkpoints and generated artifacts
-dataset/
+# Keep exactly the unpacked CIFAR-10 files required by the second-round runner.
+# Do not commit the redundant upstream archive or any other dataset.
+dataset/*
+!dataset/CIFAR10/
+dataset/CIFAR10/*
+!dataset/CIFAR10/cifar-10-batches-py/
+!dataset/CIFAR10/cifar-10-batches-py/**
 output/
 tmp/
+# Keep the clean CIFAR-10 checkpoint and official metadata needed by the runner;
+# keep all generated/backdoored checkpoints out of Git.
 **/saved_model/**/*.pth
+!official-oneflip/saved_model/resnet_CIFAR10/clean_model_1.pth
 **/saved_model/**/*.pkl
+!official-oneflip/saved_model/resnet_CIFAR10/clean_model_1_neuron_trigger_pair.pkl
 **/saved_model/**/*.npy
+!official-oneflip/saved_model/resnet_CIFAR10/clean_model_1_potential_weights.npy
+!official-oneflip/saved_model/resnet_CIFAR10/clean_model_1_args.yaml
 official-oneflip/runs/**/trial_triggers/
 official-oneflip/runs/**/progress.json
 official-oneflip/runs/**/*.pth
