@@ -1,0 +1,82 @@
+{
+  "source_results": [
+    "runs\\causaloneflip-tune-class6-fine-1\\results.csv",
+    "runs\\causaloneflip-tune-class6-fine-2\\results.csv",
+    "runs\\causaloneflip-tune-class6-fine-3\\results.csv"
+  ],
+  "selection_rule": "held-out qualification rate, combined ASR, counterfactual gain, lower trigger-only ASR, lower mask L1",
+  "best": {
+    "beta": 2.0,
+    "mask_weight": 0.001,
+    "clean_margin": 2.0,
+    "attack_margin": 0.5,
+    "trials": 36,
+    "qualified_trials": 24,
+    "qualification_rate": 0.6666666666666666,
+    "trigger_only_asr_mean": 0.0,
+    "bit_only_asr_mean": 0.138671875,
+    "combined_asr_mean": 0.7228732638888888,
+    "bit_marginal_gain_mean": 3.694347063700358,
+    "mask_l1_mean": 656.5463392469618
+  },
+  "closest_setting": {
+    "beta": 2.0,
+    "mask_weight": 0.001,
+    "clean_margin": 2.0,
+    "attack_margin": 0.5,
+    "trials": 36,
+    "qualified_trials": 24,
+    "qualification_rate": 0.6666666666666666,
+    "trigger_only_asr_mean": 0.0,
+    "bit_only_asr_mean": 0.138671875,
+    "combined_asr_mean": 0.7228732638888888,
+    "bit_marginal_gain_mean": 3.694347063700358,
+    "mask_l1_mean": 656.5463392469618
+  },
+  "shortlist": [
+    {
+      "beta": 2.0,
+      "mask_weight": 0.001,
+      "clean_margin": 2.0,
+      "attack_margin": 0.5,
+      "trials": 36,
+      "qualified_trials": 24,
+      "qualification_rate": 0.6666666666666666,
+      "trigger_only_asr_mean": 0.0,
+      "bit_only_asr_mean": 0.138671875,
+      "combined_asr_mean": 0.7228732638888888,
+      "bit_marginal_gain_mean": 3.694347063700358,
+      "mask_l1_mean": 656.5463392469618
+    },
+    {
+      "beta": 2.0,
+      "mask_weight": 0.001,
+      "clean_margin": 1.0,
+      "attack_margin": 0.5,
+      "trials": 36,
+      "qualified_trials": 23,
+      "qualification_rate": 0.6388888888888888,
+      "trigger_only_asr_mean": 0.0020616319444444445,
+      "bit_only_asr_mean": 0.138671875,
+      "combined_asr_mean": 0.7953559027777778,
+      "bit_marginal_gain_mean": 3.0800586541493735,
+      "mask_l1_mean": 558.2354431152344
+    },
+    {
+      "beta": 2.0,
+      "mask_weight": 0.001,
+      "clean_margin": 0.5,
+      "attack_margin": 0.5,
+      "trials": 36,
+      "qualified_trials": 22,
+      "qualification_rate": 0.6111111111111112,
+      "trigger_only_asr_mean": 0.015516493055555556,
+      "bit_only_asr_mean": 0.138671875,
+      "combined_asr_mean": 0.8185763888888888,
+      "bit_marginal_gain_mean": 2.650824715693792,
+      "mask_l1_mean": 499.3191401163737
+    }
+  ],
+  "has_qualifying_setting": true,
+  "note": "Use the selected beta and mask_weight for the fixed main experiment."
+}
