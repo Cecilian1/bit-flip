@@ -11,7 +11,7 @@ On Ubuntu 22.04 with an RTX 5090, use Python 3.12 and the PyTorch 2.8 CUDA
 12.8 wheel specified by the repository lock file. CUDA 12.8 is the first
 toolkit release that can emit native Blackwell code; do not reuse the older
 CUDA 12.4 environment from the Windows coarse screen. The NVIDIA driver must
-be new enough for CUDA 12.8.
+be at least 570.26 for CUDA 12.8 GA.
 
 ```bash
 git clone git@github.com:Cecilian1/bit-flip.git
