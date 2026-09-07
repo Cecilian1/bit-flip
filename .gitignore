@@ -13,6 +13,7 @@
 .codex-finalizer/
 **/__pycache__/
 *.py[cod]
+**/.python-version
 
 # Local data, checkpoints and generated artifacts
 # Keep exactly the unpacked CIFAR-10 files required by the second-round runner.

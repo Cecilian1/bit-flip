@@ -20,14 +20,26 @@ uv sync --frozen --python 3.12
 uv run --frozen python -c "import torch; print(torch.__version__, torch.version.cuda, torch.cuda.get_device_name(0), torch.cuda.get_device_capability(0))"
 ```
 
-Then run from this directory:
+Then run from `official-oneflip`:
 
 ```bash
 chmod +x run_causaloneflip.sh run_fresh_oneflip.sh
 ./run_causaloneflip.sh tune-coarse
 ./run_causaloneflip.sh tune-fine
 ./run_causaloneflip.sh select-params
+./run_causaloneflip.sh main-all
 ```
+
+`main-all` uses the validation-qualified fixed setting from
+`runs/causaloneflip-tune-class6/selected_params.json`, runs causal, ONEFLIP,
+and T-UAP for CIFAR-10 targets 0--9 and three seeds, then writes the aggregate
+report. It refuses to run the causal arm if no fixed setting qualified.
+
+When a virtual environment is already activated, both entry points use its
+`python` directly. Set `PYTHON_EXECUTABLE` to an absolute interpreter path to
+make this explicit. Otherwise they use `uv run --frozen`, which creates only
+the standard project `.venv`; no script derives a virtual-environment name
+from a computer or user name.
 
 Use `DEVICE=cpu` or another CUDA device only when necessary. Interrupted
 coarse/fine calculations can be resumed with `--resume`. On Windows, the
@@ -69,61 +81,36 @@ target classes and seeds.
 each candidate, while `manifest.json` records the exact command arguments,
 CUDA/PyTorch versions, device name, candidate counts, and best qualifying pair.
 
-## Run sequence
+## Main experiment
 
-Run from `official-oneflip`:
+After the fine stage has written a validation-qualified fixed setting, run the
+complete CIFAR-10 experiment from `official-oneflip`:
 
-```powershell
-.\run_causaloneflip.ps1 -Phase tune
+```bash
+./run_causaloneflip.sh main-all
 ```
 
-Rank the completed tuning trial by the prespecified rule (qualification rate,
-then combined ASR, bit marginal gain, and lower L1) and write the selected
-fixed parameters:
+This runs the causal method, ONEFLIP, and T-UAP for targets `0,1,...,9` and
+seeds `20260904,20260905,20260906`, then creates:
 
-```powershell
-.\run_causaloneflip.ps1 -Phase select-params
+```text
+runs/causaloneflip-cifar10-causal-main/
+runs/causaloneflip-cifar10-oneflip-baseline/
+runs/causaloneflip-cifar10-tuap-baseline/
+runs/causaloneflip-cifar10-report/comparison_summary.csv
+runs/causaloneflip-cifar10-report/qualified_pairs.csv
 ```
 
-This writes `parameter_ranking.csv` and `selected_params.json`. The remaining
-phases read the selected mask weight automatically, so all methods use the
-same perturbation regularization. The causal main experiment stops if no
-tuning setting produced a qualifying causal pair; the two baselines may still
-be run to document that negative result. Then run:
+Run a single phase with `causal-main`, `oneflip-baseline`, `tuap-baseline`, or
+`report-cifar10`. `TARGET_CLASSES`, `MAIN_SEEDS`, `MAIN_WORKERS`, and `DEVICE`
+can override the defaults; use `--resume` only after an interrupted run. The
+causal phase stops when fine selection has no validation-qualified setting;
+the baseline phases remain runnable for a negative-result comparison.
+
+On Windows, use the same phase names:
 
 ```powershell
-.\run_causaloneflip.ps1 -Phase causal-main
-.\run_causaloneflip.ps1 -Phase oneflip-baseline
-.\run_causaloneflip.ps1 -Phase tuap-baseline
-.\run_causaloneflip.ps1 -Phase report-cifar10
-```
-
-Each phase refuses an existing output directory. Use a new directory name for
-a separate experiment. If a CausalONEFLIP calculation is interrupted, resume
-only that incomplete phase with the same command plus `-Resume`; each finished
-trial is retained in `trial_triggers/` and `progress.json`. A normal rerun
-without `-Resume` still refuses an existing output directory.
-
-`report-cifar10` produces `runs/causaloneflip-cifar10-report/` with
-`comparison_summary.csv` (mean, standard deviation, 95% bootstrap interval,
-and qualifying-pair rate for all three methods) and `qualified_pairs.csv`
-(every qualifying CausalONEFLIP pair). This is the source for the paper main
-table; do not replace it with a hand-picked maximum-ASR example.
-
-## CIFAR-100 extension
-
-Only after a CIFAR-10 causal trial qualifies, train a clean CIFAR-100 model:
-
-```powershell
-.\run_causaloneflip.ps1 -Phase train-cifar100
-```
-
-Then run the gated extension. It uses checkpoint
-`saved_model/resnet_CIFAR100/clean_model_1.pth`, targets `0,20,40,60,80`, the
-fixed CIFAR-10 parameters, and the same three main seeds:
-
-```powershell
-.\run_causaloneflip.ps1 -Phase cifar100-causal
+.\run_causaloneflip.ps1 -Phase main-all
 ```
 
 ## Qualification rule
