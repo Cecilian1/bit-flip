@@ -7,16 +7,18 @@ dependencies = [
     "pandas==2.2.3",
     "pillow==11.2.1",
     "pyyaml==6.0.2",
-    "torch==2.5.1+cu124",
-    "torchvision==0.20.1+cu124",
+    "torch==2.8.0+cu128",
+    "torchvision==0.23.0+cu128",
+    "torchaudio==2.8.0+cu128",
     "tqdm==4.67.0",
 ]
 
 [tool.uv.sources]
-torch = { index = "pytorch-cu124" }
-torchvision = { index = "pytorch-cu124" }
+torch = { index = "pytorch-cu128" }
+torchvision = { index = "pytorch-cu128" }
+torchaudio = { index = "pytorch-cu128" }
 
 [[tool.uv.index]]
-name = "pytorch-cu124"
-url = "https://download.pytorch.org/whl/cu124"
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
 explicit = true
